@@ -409,12 +409,77 @@
         font-style: italic;
         font-size: clamp(28px, 8vw, 36px);
         line-height: 1.2;
-        margin: 38px 0 0;
+        margin: 0 auto;
         max-width: 420px;
       }
       .dawn .ldr em {
         font-style: italic;
         color: #8a3f2b;
+      }
+
+      /* ---- the closing block: the last thing she reads ---- */
+      .closing {
+        text-align: center;
+        padding-top: 18px;
+      }
+      .closing .lead {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8a3f2b;
+        margin-bottom: 22px;
+      }
+      .closing .orn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin: 36px 0 24px;
+        color: #b5532f;
+        font-size: 14px;
+      }
+      .closing .orn span {
+        display: block;
+        height: 1px;
+        width: 54px;
+        background: rgba(42, 22, 34, 0.25);
+      }
+      .closing .endnote {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 20px;
+        line-height: 1.35;
+        color: rgba(42, 22, 34, 0.8);
+      }
+      .closing .sigline {
+        margin-top: 14px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #8a3f2b;
+      }
+      /* the closing lines drift up as they scroll in, where the browser
+         supports it. Everywhere else they simply sit there. */
+      @media (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: view()) {
+          .closing > * {
+            animation: fadeup linear both;
+            animation-timeline: view();
+            animation-range: entry 10% cover 34%;
+          }
+          @keyframes fadeup {
+            from {
+              opacity: 0;
+              transform: translateY(16px);
+            }
+            to {
+              opacity: 1;
+              transform: none;
+            }
+          }
+        }
       }
       .sun {
         position: absolute;
@@ -522,7 +587,6 @@
         <div class="kicker">29 May → 29 Aug 2026</div>
         <h1>The first <em>Quarter</em></h1>
         <p class="sub">A small record of us, so far.</p>
-        <div class="who">Talha &amp; Aiza</div>
       </div>
     </section>
 
@@ -693,9 +757,9 @@
       <div class="wrap">
         <div class="label">Needs improvement?</div>
         <ol class="plain">
-          <li><b>Petition 01</b>Your daily reports ("kuch khas nahi")</li>
-          <li><b>Petition 02</b>Taking compliments</li>
-          <li><b>Petition 03</b>Inclusion of me in your daily life? 👀</li>
+          <li>Your daily reports ("kuch khas nahi")</li>
+          <li>Taking compliments</li>
+          <li>Inclusion of me in your daily life? 👀</li>
         </ol>
       </div>
     </section>
@@ -743,9 +807,15 @@
           You are the best thing in my life, thank you for being you and stay
           the same always!
         </p> -->
-        <p class="ldr">
-          How beautiful it is to wait, <em>if the result is you</em>
-        </p>
+        <div class="closing">
+          <!-- ✏️ EDIT the four lines below -->
+          <p class="lead">I'll end with a line I like</p>
+          <p class="ldr">
+            How beautiful it is to wait, <em>if the result is you</em>
+          </p>
+          <div class="orn" aria-hidden="true"><span></span>✦<span></span></div>
+          <p class="endnote">Here's to the next quarter, and the one after.</p>
+        </div>
       </div>
       <div class="sun" aria-hidden="true"></div>
     </section>
