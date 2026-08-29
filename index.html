@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The First Quarter</title>
+
+    <!--
+  ============================================================
+  HOW TO EDIT THIS PAGE (no coding needed)
+  ============================================================
+  • Every word she sees is plain text inside the <section> blocks below.
+    Edit the words, leave the tags (<p>, <li>, <b> ...) alone.
+  • To ADD an item: copy one whole block (from its opening tag to its
+    closing tag) and paste it under the last one.
+  • To REMOVE an item or a whole section: delete the block.
+  • Lines marked  ✏️ EDIT  are the ones you'll most likely want to change.
+  • Nothing depends on JavaScript. If a phone blocks scripts, it all still shows.
+
+  The page reads top to bottom as night → sunrise. That's the point:
+  same sky in two time zones, and the sunrise you promised her.
+  ============================================================
+-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --night: #0a0f2c;
+        --gold: #f2d28b;
+        --cream: #f6efe1;
+        --ink: #2a1622;
+        --ember: #d07a4a;
+        --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+        --sans: "DM Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        background: var(--night);
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        font-family: var(--sans);
+        font-size: 17px;
+        line-height: 1.55;
+        color: var(--cream);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      .wrap {
+        max-width: 540px;
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+      p,
+      li {
+        overflow-wrap: anywhere;
+      }
+
+      /* ---- each section is one step of the sky: --from at top, --to at bottom ---- */
+      section {
+        position: relative;
+        padding: 44px 0 40px;
+        background: linear-gradient(180deg, var(--from), var(--to));
+      }
+      section.dark-text {
+        color: var(--ink);
+      }
+      section.dark-text .label {
+        color: #8a3f2b;
+      }
+      section.dark-text .rule {
+        background: rgba(42, 22, 34, 0.25);
+      }
+
+      .label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 18px;
+      }
+      .rule {
+        height: 1px;
+        background: rgba(246, 239, 225, 0.22);
+        margin: 0 0 26px;
+      }
+
+      /* ---- hero ---- */
+      .hero {
+        --from: #0a0f2c;
+        --to: #0e1436;
+        padding: 64px 0 52px;
+        overflow: hidden;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 1;
+      }
+      .hero .kicker {
+        font-size: 14px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(50px, 15vw, 76px);
+        line-height: 0.98;
+        margin: 16px 0 18px;
+        letter-spacing: -0.01em;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero .sub {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 24px;
+        line-height: 1.3;
+        color: rgba(246, 239, 225, 0.85);
+      }
+      .hero .who {
+        margin-top: 34px;
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 239, 225, 0.6);
+      }
+      .stars {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .stars circle {
+        fill: var(--cream);
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .stars .tw {
+          animation: tw 3.2s ease-in-out infinite;
+        }
+        .stars .tw:nth-child(3n) {
+          animation-duration: 4.1s;
+          animation-delay: 0.7s;
+        }
+        .stars .tw:nth-child(4n) {
+          animation-duration: 2.6s;
+          animation-delay: 1.4s;
+        }
+        @keyframes tw {
+          0%,
+          100% {
+            opacity: 0.35;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+        .hero .wrap {
+          animation: rise 0.9s ease both;
+        }
+        @keyframes rise {
+          from {
+            opacity: 0;
+            transform: translateY(14px);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      }
+
+      /* ---- the count: a sentence with big numbers ---- */
+      .count {
+        --from: #0e1436;
+        --to: #151b45;
+      }
+      .tally {
+        font-family: var(--serif);
+        font-size: 26px;
+        line-height: 1.35;
+      }
+      .tally b {
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 1;
+        color: var(--gold);
+        display: inline-block;
+        vertical-align: -4px;
+        margin-right: 6px;
+      }
+      .tally span {
+        display: block;
+        margin: 14px 0;
+      }
+
+      /* ---- plain lists with a small star ---- */
+      .goodat {
+        --from: #151b45;
+        --to: #1e2150;
+      }
+      .learned {
+        --from: #2e2159;
+        --to: #45255a;
+      }
+      ul.stars-list {
+        list-style: none;
+      }
+      ul.stars-list li {
+        position: relative;
+        padding-left: 28px;
+        margin: 14px 0;
+        font-size: 18px;
+      }
+      ul.stars-list li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        top: 1px;
+        color: var(--gold);
+        font-size: 15px;
+      }
+      section.dark-text ul.stars-list li::before {
+        color: #b5532f;
+      }
+
+      /* ---- the timeline ---- */
+      .days {
+        --from: #1e2150;
+        --to: #2e2159;
+      }
+      .tl {
+        list-style: none;
+        border-left: 1px solid rgba(242, 210, 139, 0.45);
+        margin-left: 7px;
+        padding-left: 24px;
+      }
+      .tl li {
+        position: relative;
+        margin: 0 0 30px;
+      }
+      .tl li::before {
+        content: "";
+        position: absolute;
+        left: -29px;
+        top: 8px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 4px rgba(242, 210, 139, 0.18);
+      }
+      .tl .d {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 6px;
+      }
+      .tl p {
+        font-family: var(--serif);
+        font-size: 22px;
+        line-height: 1.32;
+      }
+
+      /* ---- her lines ---- */
+      .record {
+        --from: #45255a;
+        --to: #6a2f52;
+      }
+      .q {
+        border-left: 3px solid var(--gold);
+        padding: 4px 0 4px 16px;
+        margin: 22px 0;
+      }
+      .q p {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 24px;
+        line-height: 1.3;
+      }
+      .q small {
+        display: block;
+        margin-top: 8px;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 239, 225, 0.65);
+        font-weight: 600;
+      }
+
+      /* ---- my rap sheet + petitions ---- */
+      .sheet {
+        --from: #6a2f52;
+        --to: #93403f;
+      }
+      .asks {
+        --from: #93403f;
+        --to: #be5a38;
+      }
+      ol.plain {
+        list-style: none;
+      }
+      ol.plain li {
+        margin: 16px 0;
+        padding-left: 0;
+        font-size: 18px;
+      }
+      ol.plain li b {
+        font-weight: 600;
+        color: var(--gold);
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .asks .label,
+      .asks ol.plain li b {
+        color: #ffe2a8;
+      }
+
+      /* ---- shaadi k baad list (tap to tick) ---- */
+      .list {
+        background: linear-gradient(
+          180deg,
+          #be5a38 0,
+          #e38b4a 70px,
+          #f4b26e 100%
+        );
+        padding-top: 70px;
+      }
+      .todo {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin: 14px 0;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .todo input {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 24px;
+        height: 24px;
+        flex: none;
+        margin-top: 2px;
+        border: 2px solid rgba(42, 22, 34, 0.7);
+        border-radius: 6px;
+        background: transparent;
+      }
+      .todo input:checked {
+        background: var(--ink);
+        border-color: var(--ink);
+      }
+      .todo input:checked + span {
+        text-decoration: line-through;
+        opacity: 0.7;
+      }
+      .todo input:focus-visible {
+        outline: 3px solid #8a3f2b;
+        outline-offset: 2px;
+      }
+
+      /* ---- sunrise ---- */
+      .dawn {
+        --from: #f4b26e;
+        --to: #fbe7c6;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+      .dawn .wrap {
+        position: relative;
+        z-index: 1;
+        padding-bottom: 150px;
+      }
+      .dawn .big {
+        font-family: var(--serif);
+        font-size: clamp(30px, 8.6vw, 40px);
+        line-height: 1.15;
+        margin: 0 0 20px;
+      }
+      .dawn .big em {
+        font-style: italic;
+      }
+      .dawn p.t {
+        font-size: 18px;
+        margin: 12px 0;
+      }
+      .dawn .ldr {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(28px, 8vw, 36px);
+        line-height: 1.2;
+        margin: 38px 0 0;
+        max-width: 420px;
+      }
+      .dawn .ldr em {
+        font-style: italic;
+        color: #8a3f2b;
+      }
+      .sun {
+        position: absolute;
+        left: 50%;
+        bottom: -140px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          circle at 50% 40%,
+          #fff6dd,
+          #f9c56d 55%,
+          rgba(249, 197, 109, 0) 72%
+        );
+        pointer-events: none;
+      }
+
+      /* ---- sign-off ---- */
+      .sign {
+        --from: #fbe7c6;
+        --to: #fdf3e3;
+        padding: 34px 0 48px;
+        color: var(--ink);
+        border-top: 1px solid rgba(42, 22, 34, 0.18);
+      }
+      .sign .sig {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 26px;
+        line-height: 1.25;
+      }
+      .sign .meta {
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8a3f2b;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .sign .counter {
+        margin-top: 26px;
+      }
+      .sign .line {
+        display: block;
+        height: 1px;
+        border-bottom: 2px dotted rgba(42, 22, 34, 0.45);
+        margin: 14px 0 8px;
+        max-width: 260px;
+      }
+      .sign .fine {
+        margin-top: 36px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #8a3f2b;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================ -->
+    <!-- HERO  ✏️ EDIT the title, dates, names                        -->
+    <!-- ============================================================ -->
+    <section class="hero">
+      <svg
+        class="stars"
+        viewBox="0 0 390 520"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <circle class="tw" cx="24" cy="40" r="1.4" />
+        <circle class="tw" cx="88" cy="22" r="1" />
+        <circle class="tw" cx="150" cy="58" r="1.8" />
+        <circle class="tw" cx="230" cy="18" r="1.1" />
+        <circle class="tw" cx="300" cy="44" r="1.5" />
+        <circle class="tw" cx="360" cy="26" r="1" />
+        <circle class="tw" cx="40" cy="120" r="1" />
+        <circle class="tw" cx="120" cy="140" r="1.3" />
+        <circle class="tw" cx="200" cy="96" r="1" />
+        <circle class="tw" cx="270" cy="128" r="1.7" />
+        <circle class="tw" cx="340" cy="100" r="1.2" />
+        <circle class="tw" cx="380" cy="160" r="1" />
+        <circle class="tw" cx="18" cy="210" r="1.5" />
+        <circle class="tw" cx="70" cy="250" r="1" />
+        <circle class="tw" cx="160" cy="220" r="1.2" />
+        <circle class="tw" cx="250" cy="200" r="1" />
+        <circle class="tw" cx="320" cy="240" r="1.6" />
+        <circle class="tw" cx="370" cy="290" r="1" />
+        <circle class="tw" cx="30" cy="330" r="1.2" />
+        <circle class="tw" cx="110" cy="360" r="1" />
+        <circle class="tw" cx="190" cy="320" r="1.5" />
+        <circle class="tw" cx="280" cy="350" r="1" />
+        <circle class="tw" cx="350" cy="390" r="1.3" />
+        <circle class="tw" cx="60" cy="440" r="1" />
+        <circle class="tw" cx="140" cy="470" r="1.4" />
+        <circle class="tw" cx="230" cy="430" r="1" />
+        <circle class="tw" cx="310" cy="480" r="1.2" />
+        <circle class="tw" cx="385" cy="450" r="1" />
+        <circle class="tw" cx="205" cy="500" r="1" />
+        <circle class="tw" cx="95" cy="505" r="1.1" />
+      </svg>
+      <div class="wrap">
+        <div class="kicker">29 May → 29 Aug 2026</div>
+        <h1>The first <em>Quarter</em></h1>
+        <p class="sub">A small record of us, so far.</p>
+        <div class="who">Talha &amp; Aiza</div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THE COUNT  ✏️ EDIT the numbers                               -->
+    <!-- ============================================================ -->
+    <section class="count">
+      <div class="wrap">
+        <div class="label">The count</div>
+        <div class="tally">
+          <span><b>93</b> days</span>
+          <span><b>7,200+</b> texts, and counting</span>
+          <span><b>1</b> ring</span>
+          <span><b>1</b> day you rated 10/10</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- THINGS YOU'RE GOOD AT  ✏️ EDIT / add <li> lines              -->
+    <!-- ============================================================ -->
+    <section class="goodat">
+      <div class="wrap">
+        <div class="label">Things you're annoyingly good at</div>
+        <ul class="stars-list">
+          <li>Making my whole day with one text</li>
+          <li>Keeping me supplied with reels</li>
+          <li>Teaching me stuff</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DAYS I'M KEEPING  ✏️ EDIT dates + text, copy an <li> to add  -->
+    <!-- ============================================================ -->
+    <section class="days">
+      <div class="wrap">
+        <div class="label">Days I'm keeping</div>
+        <ol class="tl">
+          <li>
+            <div class="d">29 May</div>
+            <p>
+              I texted the first time, crazy how if I didn't, you were gonna say
+              No!
+            </p>
+          </li>
+          <li>
+            <div class="d">06 Jun</div>
+            <p>
+              Heavy day for you, you cried. I wish I had realized and done
+              something to make it light :(
+            </p>
+          </li>
+          <li>
+            <div class="d">07 Jun</div>
+            <p>
+              Your ghar, your "Yes" and a minor ring emergency solved together
+              :)
+            </p>
+          </li>
+          <li>
+            <div class="d">28 Jun</div>
+            <p>
+              Our first lunch date: A bit shy but cute experience and we were
+              quick to return
+            </p>
+          </li>
+          <li>
+            <div class="d">11 Jul</div>
+            <p>
+              The movie, good food, GREAT conversation and some husband training
+              :) You called it a 10/10 day.
+            </p>
+          </li>
+          <li>
+            <div class="d">14 Jul</div>
+            <p>
+              A heavy day for me. You made it light with a cute picture + the
+              airport promises.
+            </p>
+          </li>
+          <li>
+            <div class="d">21 Jul</div>
+            <p>
+              Easily the best birthday wish I ever received (framed already),
+              and you made the time fly at the airport.
+            </p>
+          </li>
+          <li>
+            <div class="d">16 Aug</div>
+            <p>You called me bestie. Best promotion I got all quarter.</p>
+          </li>
+          <li>
+            <div class="d">20 Aug</div>
+            <p>
+              You practicing waking up for sunrises, allegedly 👀 (I failed to
+              respond so here it is in the highlights)
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- WHAT I KEEP NOTICING  ✏️ EDIT / add <li> lines                -->
+    <!-- ============================================================ -->
+    <section class="learned">
+      <div class="wrap">
+        <div class="label">Things I noticed</div>
+        <ul class="stars-list">
+          <li>You are smart and girly. Rare combination!</li>
+          <li>Your energy is out of this world.</li>
+          <li>You checked in on me when I skipped texting one day.</li>
+          <li>You opening up a little, starting to tell me stories.</li>
+          <li>Your incredible voice notes (I love your voice).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HER LINES  ✏️ EDIT: paste her exact words                    -->
+    <!-- ============================================================ -->
+    <section class="record">
+      <div class="wrap">
+        <div class="label">Said by you, saved by me</div>
+        <div class="q"><p>“you do leave me speechless sometimes 🤣”</p></div>
+        <div class="q"><p>“nahi jeet sakti apsay mein 🤣”</p></div>
+        <div class="q">
+          <p>
+            “Where do you get these unique ideas to make my day bestiee? 🥹”
+          </p>
+        </div>
+        <div class="q">
+          <p>“you're just crazy”</p>
+          <small>confirmed positive</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MY RAP SHEET  ✏️ EDIT                                        -->
+    <!-- ============================================================ -->
+    <section class="sheet">
+      <div class="wrap">
+        <div class="label">Incident Reports, All mine</div>
+        <ol class="plain">
+          <li><b>Case 01</b>Was 7 minutes late to our call, once.</li>
+          <li>
+            <b>Case 02</b>Was too focused on finding your location. Punished
+            with ghosting.
+          </li>
+          <li>
+            <b>Case 03</b>Language incidents (Hello there, Yo, stay blessed)
+          </li>
+          <li>
+            <b>Case 04</b>Wiped the sugar off a glazed donut. Sentenced to
+            force-feeding, pending
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PETITIONS FOR THE NEXT 93  ✏️ EDIT                           -->
+    <!-- (this replaces the "needs improvement" ratings)             -->
+    <!-- ============================================================ -->
+    <section class="asks">
+      <div class="wrap">
+        <div class="label">Needs improvement?</div>
+        <ol class="plain">
+          <li><b>Petition 01</b>Your daily reports ("kuch khas nahi")</li>
+          <li><b>Petition 02</b>Taking compliments</li>
+          <li><b>Petition 03</b>Inclusion of me in your daily life? 👀</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SHAADI K BAAD LIST  ✏️ EDIT: copy a <label> line to add      -->
+    <!-- ============================================================ -->
+    <section class="list dark-text">
+      <div class="wrap">
+        <div class="label">Some items from the "List"</div>
+        <label class="todo"
+          ><input type="checkbox" /><span>Skydiving</span></label
+        >
+        <label class="todo"
+          ><input type="checkbox" /><span>Rollercoaster</span></label
+        >
+        <label class="todo"
+          ><input type="checkbox" /><span
+            >Experience extreme winter (with an accidental push in snow?)</span
+          ></label
+        >
+        <label class="todo"
+          ><input type="checkbox" /><span
+            >A sunset date at the beach</span
+          ></label
+        >
+        <label class="todo"
+          ><input type="checkbox" /><span
+            >That bench by the lake in Minneapolis (together this time)</span
+          ></label
+        >
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SUNRISE  ✏️ EDIT: the part that matters                      -->
+    <!-- ============================================================ -->
+    <section class="dawn dark-text">
+      <div class="wrap">
+        <!-- <div class="label">The part that matters</div>
+        <p class="big">
+          For the record — you made all 93 of these days <em>better.</em>
+        </p>
+        <p class="t">
+          You are the best thing in my life, thank you for being you and stay
+          the same always!
+        </p> -->
+        <p class="ldr">
+          How beautiful it is to wait, <em>if the result is you</em>
+        </p>
+      </div>
+      <div class="sun" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SIGN-OFF  ✏️ EDIT                                            -->
+    <!-- ============================================================ -->
+    <!-- <section class="sign">
+      <div class="wrap">
+        <div class="meta">Signed, 29 Aug 2026</div>
+        <div class="sig">Apko chahnay wala aik shaks</div>
+        <div class="counter">
+          <div class="meta">Countersigned</div>
+          <span class="line"></span>
+          <span style="font-size: 15px; color: #8a3f2b"
+            >(your turn, princess)</span
+          >
+        </div>
+      </div>
+    </section> -->
+  </body>
+</html>
