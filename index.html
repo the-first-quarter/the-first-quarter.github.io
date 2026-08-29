@@ -296,6 +296,17 @@
         font-size: 24px;
         line-height: 1.3;
       }
+      /* Emoji fonts have no italic version, so on an italic line the browser
+         fakes one by slanting the emoji — that's the "stretched" look.
+         This turns the faking off. Our serif has a real italic, so the
+         words are unchanged; only the emoji sit upright again. */
+      .q p,
+      .hero .sub,
+      .dawn .ldr,
+      .closing .endnote {
+        font-synthesis: none;
+        font-synthesis-style: none;
+      }
       .q small {
         display: block;
         margin-top: 8px;
@@ -606,20 +617,6 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- THINGS YOU'RE GOOD AT  ✏️ EDIT / add <li> lines              -->
-    <!-- ============================================================ -->
-    <section class="goodat">
-      <div class="wrap">
-        <div class="label">Things you're annoyingly good at</div>
-        <ul class="stars-list">
-          <li>Making my whole day with one text</li>
-          <li>Keeping me supplied with reels</li>
-          <li>Teaching me stuff</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
     <!-- DAYS I'M KEEPING  ✏️ EDIT dates + text, copy an <li> to add  -->
     <!-- ============================================================ -->
     <section class="days">
@@ -698,7 +695,9 @@
         <div class="label">Things I noticed</div>
         <ul class="stars-list">
           <li>You are smart and girly. Rare combination!</li>
+          <li>You make my day with one text</li>
           <li>Your energy is out of this world.</li>
+          <li>You're incredibly kind.</li>
           <li>You checked in on me when I skipped texting one day.</li>
           <li>You opening up a little, starting to tell me stories.</li>
           <li>Your incredible voice notes (I love your voice).</li>
@@ -733,18 +732,12 @@
       <div class="wrap">
         <div class="label">Incident Reports, All mine</div>
         <ol class="plain">
-          <li><b>Case 01</b>Was 7 minutes late to our call, once.</li>
+          <li><b>01</b>Was 7 minutes late to our call, once.</li>
           <li>
-            <b>Case 02</b>Was too focused on finding your location. Punished
-            with ghosting.
+            <b>02</b>Was too focused on finding your location. Punished with
+            ghosting.
           </li>
-          <li>
-            <b>Case 03</b>Language incidents (Hello there, Yo, stay blessed)
-          </li>
-          <li>
-            <b>Case 04</b>Wiped the sugar off a glazed donut. Sentenced to
-            force-feeding, pending
-          </li>
+          <li><b>03</b>Formal language (Hello there, Yo, stay blessed)</li>
         </ol>
       </div>
     </section>
